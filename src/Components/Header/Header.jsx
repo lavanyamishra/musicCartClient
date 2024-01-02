@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../redux/Slices/authSlice";
 import Swal from "sweetalert2";
 
-import musicartLogo from "/images/musicartLogo.png";
 import phone from '../../../public/images/phone.png'
 
 const Header = () => {

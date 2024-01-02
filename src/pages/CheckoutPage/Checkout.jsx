@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./checkout.module.css";
-import { loadStripe } from "@stripe/stripe-js";
+
 
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
