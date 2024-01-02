@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./SignUp.module.css";
 import { signupUser } from "../../../redux/Slices/authSlice";
 import MobileAuthHeader from "../../../MobileComponents/MobileHeader/MobileAuthHeader";
-import logo from "/images/logo.png";
+import music from '../../../../public/images/music.png'
 
 function Signup() {
   const [name, setName] = useState("");
@@ -42,7 +42,7 @@ function Signup() {
       {isMobile && <MobileAuthHeader />}
       {!isMobile ? (
         <div className={styles.logo_container}>
-          <img src={logo} alt="logo" />
+          <img src={music} alt="logo" />
           <h2>Musicart</h2>
         </div>
       ) : (

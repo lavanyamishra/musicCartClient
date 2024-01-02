@@ -4,7 +4,7 @@ import { loginUser } from "../../../redux/Slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 
 import styles from "./Login.module.css";
-import logo from "/images/logo.png";
+import music from '../../../../public/images/music.png'
 import MobileAuthHeader from "../../../MobileComponents/MobileHeader/MobileAuthHeader";
 
 function Login() {
@@ -39,7 +39,7 @@ function Login() {
       {isMobile && <MobileAuthHeader />}
       {!isMobile ? (
         <div className={styles.logo_container}>
-          <img src={logo} alt="logo" />
+          <img src={music} alt="logo" />
           <h2>Musicart</h2>
         </div>
       ) : (
