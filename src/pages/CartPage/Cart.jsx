@@ -34,21 +34,7 @@ const Cart = () => {
     dispatch(updateCartQuantity({ quantity, productId, userId }));
   };
 
-  const handleRemoveFromCart = (productId) => {
-    Swal.fire({
-      title: "Are you sure you want to remove this item?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#2fca08",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, remove it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        dispatch(getCartTotal());
-        dispatch(removeFromCart({ productId, userId }));
-      }
-    });
-  };
+
 
   useEffect(() => {
     dispatch(getCartTotal());
@@ -130,12 +116,7 @@ const Cart = () => {
                       <p> ₹ {item?.price * item?.quantity}</p>
                     </div>
                   </div>
-                  <img
-                    className={styles.delete_icon}
-                    onClick={() => handleRemoveFromCart(item?._id)}
-                    src={deleteIcon}
-                    alt="deleteIcon"
-                  />
+
                 </div>
               ))}
               {isMobile && <hr />}

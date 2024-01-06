@@ -71,6 +71,15 @@ function ProductDetails() {
       navigate("/login");
     }
   };
+  const handlecheckout = async () => {
+    if (user) {
+      await dispatch(addToCart({ userId, product }));
+      navigate("/checkout");
+    } else {
+
+      navigate("/login");
+    }
+  };
 
   return (
     <>
@@ -99,7 +108,7 @@ function ProductDetails() {
               )}
               <div className={styles.product_details}>
                 {isMobile && (
-                  <button onClick={handleAddToCart} className={styles.buy_btn}>
+                  <button onClick={handlecheckout} className={styles.buy_btn}>
                     Buy Now
                   </button>
                 )}
@@ -175,16 +184,33 @@ function ProductDetails() {
                   ))}
                 </div>
               )}
-              <div className={styles.product_btns}>
-                <button onClick={handleAddToCart} className={styles.cart_btn}>
-                  Add to Cart
-                </button>
+              {user ? (
+                <>
+                  <div className={styles.product_btns}>
+                    <button onClick={handleAddToCart} className={styles.cart_btn}>
+                      Add to Cart
+                    </button>
 
-                <button onClick={handleAddToCart} className={styles.buy_btn}>
-                  Buy Now
-                </button>
-              </div>
+                    <button onClick={handlecheckout} className={styles.buy_btn}>
+                      Buy Now
+                    </button>
+                  </div>
+                </>
+
+              ) : (
+
+                <div className={styles.product_btns}>
+                  <button onClick={handleAddToCart} className={styles.cart_btn}>
+                    Login
+                  </button>
+                </div>
+              )
+              }
+
+
             </div>
+
+
           </>
         ) : (
           <DetailPageSkeletan />
